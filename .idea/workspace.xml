@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8892248e-c9d7-4d82-9b2e-a0d7eebc4068" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/css/app.31d6cfe0.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/vendor.29ff1932.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/KFOkCnqEu92Fr1MmgVxIIzQ.68bb21d0.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/KFOlCnqEu92Fr1MmEU9fBBc-.48af7707.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/KFOlCnqEu92Fr1MmSU5fBBc-.c2f7ab22.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/KFOlCnqEu92Fr1MmWUlfBBc-.77ecb942.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/KFOlCnqEu92Fr1MmYUtfBBc-.f5677eb2.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/KFOmCnqEu92Fr1Mu4mxM.f1e2a767.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.4d73cb90.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.0383092b.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons/favicon-128x128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons/favicon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/4.c17a0dbc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/533.2640f1d3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/596.b4a4d2fb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/app.ed17ff99.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/vendor.40387c81.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sound-n-image-board/src/layouts/MainLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/services/SoundService.js" beforeDir="false" afterPath="$PROJECT_DIR$/sound-n-image-board/src/services/SoundService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666726739517</updated>
       <workItem from="1666726741801" duration="81000" />
-      <workItem from="1666726880878" duration="11169000" />
+      <workItem from="1666726880878" duration="11809000" />
     </task>
     <servers />
   </component>

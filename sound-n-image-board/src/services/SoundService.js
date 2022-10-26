@@ -37,6 +37,11 @@ class MediaService {
     return this.keymap[key];
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  getRandomKeyword() {
+    return keywords[Math.floor(Math.random() * keywords.length)];
+  }
+
   async fetchImages(keyword = '', page = 1) {
     const { response = {} } = await this.unsplash.search.getPhotos({
       query: keyword,

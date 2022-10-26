@@ -1,5 +1,9 @@
 <template>
-  <q-layout view="lHh Lpr lFf" @keydown="keylistener">
+  <q-layout view="lHh Lpr lFf"
+            @keydown="keylistener"
+            @click.stop="getRandomKeyword"
+            @touchstart.stop="getRandomKeyword"
+  >
     <q-page-container class="window-height bg-black">
       <div class="flex flex-center full-height">
         <div>
@@ -49,6 +53,9 @@ export default defineComponent({
     keylistener(event) {
       const { key } = event;
       this.pressedKeyword = this.mediaService.getKeywordFromKey(key);
+    },
+    getRandomKeyword() {
+      this.pressedKeyword = this.mediaService.getRandomKeyword();
     },
     async fetchData() {
       try {
