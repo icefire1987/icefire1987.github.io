@@ -10,8 +10,22 @@
 
 <script>
 import { defineComponent } from 'vue';
+import MediaService from 'src/services/SoundService';
 
 export default defineComponent({
   name: 'IndexPage',
+  data() {
+    return {
+      mediaService: new MediaService(),
+    };
+  },
+  mounted() {
+    try {
+      // this.mediaService.loadMedia()
+      this.mediaService.fetchImages('dog');
+    } catch (e) {
+      console.error(e);
+    }
+  },
 });
 </script>

@@ -1,116 +1,70 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+  <q-layout view="lHh Lpr lFf" @keydown="keylistener">
+    <q-page-container class="window-height bg-black">
+      <div class="flex flex-center full-height">
+        <div>
+          <q-spinner-grid
+            color="white"
+            size="xl"
+            v-if="loading"
+          />
+        </div>
+      </div>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
+        <q-img
+          class="fullscreen"
+          :src="image"
+          spinner-color="white"
+          fit="contain"
+        ></q-img>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
-];
+import { defineComponent } from 'vue';
+import MediaService from 'src/services/SoundService';
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink,
   },
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-
+  data() {
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+      mediaService: new MediaService(),
+      pressedKeyword: null,
+      loading: false,
     };
+  },
+  computed: {
+    image() {
+      if (!this.pressedKeyword) { return null; }
+      const image = this.mediaService.getItem(this.pressedKeyword);
+      console.log(image, this.pressedKeyword);
+      return image ? image.getPath() : null;
+    },
+  },
+  methods: {
+    keylistener(event) {
+      const { key } = event;
+      this.pressedKeyword = this.mediaService.getKeywordFromKey(key);
+    },
+    async fetchData() {
+      try {
+        this.loading = true;
+        console.log('load');
+        await this.mediaService.loadMedia();
+      } catch (e) {
+        console.error(e);
+      } finally {
+        this.loading = false;
+        console.log('done');
+      }
+    },
+  },
+  mounted() {
+    this.fetchData();
   },
 });
 </script>
