@@ -90,6 +90,7 @@ class MediaService {
       // eslint-disable-next-line global-require,import/no-dynamic-require
       audioFile = require(`/sounds/${keyword}.wav`);
     } catch (e) {
+      audioFile = null;
       console.error(e);
     }
 
