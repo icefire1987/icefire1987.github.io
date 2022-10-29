@@ -81,10 +81,20 @@ class MediaService {
 
   getItem(keyword) {
     console.log(keyword, ':', this.media[keyword]);
-    if (!this.media[keyword]) { return ''; }
+    if (!this.media[keyword]) {
+      return {};
+    }
+
     const index = this.getRandomNumber(0, this.getMediaCount(keyword) - 1);
-    // eslint-disable-next-line global-require,import/no-dynamic-require
-    const audioFile = require(`/sounds/${keyword}.wav`);
+
+    let audioFile = null;
+    try {
+      // eslint-disable-next-line global-require,import/no-dynamic-require
+      audioFile = require(`/sounds/${keyword}.wav`);
+    } catch (e) {
+      console.error(e);
+    }
+
     return {
       image: this.media[keyword][index] ? new ImageModel(this.media[keyword][index]) : null,
       sound: audioFile ? new Audio(audioFile) : null,
