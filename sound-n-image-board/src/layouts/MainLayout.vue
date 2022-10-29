@@ -2,7 +2,6 @@
   <q-layout view="lHh Lpr lFf"
             @keydown="keylistener"
             @click.stop="getRandomKeyword"
-            @touchstart.stop="getRandomKeyword"
   >
     <q-page-container class="window-height bg-black">
       <div class="flex flex-center full-height">
@@ -39,17 +38,20 @@ export default defineComponent({
       mediaService: new MediaService(),
       pressedKeyword: null,
       loading: false,
+      image: null,
     };
   },
   computed: {
-    image() {
-      if (!this.pressedKeyword) { return null; }
-      const image = this.mediaService.getItem(this.pressedKeyword);
-      console.log(image, this.pressedKeyword);
-      return image ? image.getPath() : null;
-    },
   },
   methods: {
+    getImage() {
+      if (!this.pressedKeyword) { return null; }
+      const image = this.mediaService.getItem(this.pressedKeyword);
+      if (image) {
+        this.image = image.getPath();
+      }
+      return true;
+    },
     keylistener(event) {
       const { key } = event;
       this.pressedKeyword = this.mediaService.getKeywordFromKey(key);
@@ -61,7 +63,7 @@ export default defineComponent({
       try {
         this.loading = true;
         console.log('load');
-        await this.mediaService.loadMedia();
+        await this.mediaService.loadMedia(3);
       } catch (e) {
         console.error(e);
       } finally {
@@ -72,6 +74,11 @@ export default defineComponent({
   },
   mounted() {
     this.fetchData();
+  },
+  watch: {
+    pressedKeyword() {
+      this.getImage();
+    },
   },
 });
 </script>

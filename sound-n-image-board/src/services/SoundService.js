@@ -21,7 +21,16 @@ class MediaService {
     });
   }
 
-  async loadMedia() {
+  async loadMedia(count = 0) {
+    if (count) {
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < count; i++) {
+        const name = keywords[i];
+        // eslint-disable-next-line no-await-in-loop
+        await this.fetchImages(name);
+      }
+      return;
+    }
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < keywords.length; i++) {
       const name = keywords[i];
