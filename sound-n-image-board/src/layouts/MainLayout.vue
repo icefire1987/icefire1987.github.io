@@ -1,8 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf"
-            @keydown="keylistener"
-            @click.stop="getRandomKeyword"
-  >
+  <q-layout view="lHh Lpr lFf">
     <q-page-container class="window-height bg-black">
       <div class="flex flex-center full-height">
         <div>
@@ -44,12 +41,27 @@ export default defineComponent({
   computed: {
   },
   methods: {
-    getImage() {
+    stopSound() {
+      if (!this.sound) {
+        return;
+      }
+      this.sound.pause();
+    },
+    setSoundAndPlay(sound) {
+      if (!sound) {
+        return;
+      }
+      this.sound = sound;
+      this.sound.play();
+    },
+    getMedia() {
       if (!this.pressedKeyword) { return null; }
-      const image = this.mediaService.getItem(this.pressedKeyword);
+      this.stopSound();
+      const { image, sound } = this.mediaService.getItem(this.pressedKeyword);
       if (image) {
         this.image = image.getPath();
       }
+      this.setSoundAndPlay(sound);
       return true;
     },
     keylistener(event) {
@@ -72,12 +84,16 @@ export default defineComponent({
       }
     },
   },
+  created() {
+    window.addEventListener('keydown', this.keylistener);
+    window.addEventListener('click', this.getRandomKeyword);
+  },
   mounted() {
     this.fetchData();
   },
   watch: {
     pressedKeyword() {
-      this.getImage();
+      this.getMedia();
     },
   },
 });

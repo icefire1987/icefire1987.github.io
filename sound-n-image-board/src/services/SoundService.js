@@ -83,7 +83,12 @@ class MediaService {
     console.log(keyword, ':', this.media[keyword]);
     if (!this.media[keyword]) { return ''; }
     const index = this.getRandomNumber(0, this.getMediaCount(keyword) - 1);
-    return new ImageModel(this.media[keyword][index]);
+    // eslint-disable-next-line global-require,import/no-dynamic-require
+    const audiofile = require(`src/assets/sounds/${keyword}.wav`);
+    return {
+      image: this.media[keyword][index] ? new ImageModel(this.media[keyword][index]) : null,
+      sound: audiofile ? new Audio(audiofile) : null,
+    };
   }
 
   // eslint-disable-next-line class-methods-use-this
