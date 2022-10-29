@@ -2,16 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8892248e-c9d7-4d82-9b2e-a0d7eebc4068" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/bike.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/car.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/cat.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/chicken.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/cow.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/dog.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/drum.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/pony.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/sea.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/4.a4a54ecf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/533.a4abe5b3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/756.33b835cd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/app.91319bfa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/bike.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/car.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/cat.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/chicken.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/cow.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/dog.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/drum.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/pony.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound-n-image-board/public/sounds/sea.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/bike.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/bike.e0c68db8.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/car.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/car.fa81bffc.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/cat.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/cat.b4544074.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/chicken.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/chicken.9f953334.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/cow.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/cow.fe81b0d5.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/dog.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/dog.8561a64f.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/drum.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/drum.827ea77c.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/pony.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/pony.6e780ed2.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/assets/sounds/sea.wav" beforeDir="false" afterPath="$PROJECT_DIR$/media/sea.dc163cc2.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sound-n-image-board/src/layouts/MainLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/services/SoundService.js" beforeDir="false" afterPath="$PROJECT_DIR$/sound-n-image-board/src/services/SoundService.js" afterDir="false" />
     </list>
@@ -49,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/christopherjurthe/Documents/GitHub/icefire1987.github.io",
+    "last_opened_file_path": "/Users/christopherjurthe/Documents/GitHub/icefire1987.github.io/sound-n-image-board/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,6 +75,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sound-n-image-board/public" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/sound-n-image-board/src/assets" />
       <recent name="$PROJECT_DIR$/sound-n-image-board/src/services" />
@@ -81,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666726739517</updated>
       <workItem from="1666726741801" duration="81000" />
-      <workItem from="1666726880878" duration="14052000" />
+      <workItem from="1666726880878" duration="14453000" />
     </task>
     <servers />
   </component>

@@ -75,7 +75,7 @@ export default defineComponent({
       try {
         this.loading = true;
         console.log('load');
-        await this.mediaService.loadMedia(3);
+        await this.mediaService.loadMedia();
       } catch (e) {
         console.error(e);
       } finally {
