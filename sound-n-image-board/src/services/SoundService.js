@@ -10,9 +10,7 @@ class MediaService {
       return MediaService.instance;
     }
     MediaService.instance = this;
-    this.apiKeySound = 123;
     this.apiKeyImage = 'astxCAepblSMvAuAhLX_EKInuPRA_7P_O8tdscx1uQg';
-    this.apiUrlSound = 123;
     this.media = {};
     this.keymap = keymap;
 
