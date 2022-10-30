@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page-container class="window-height bg-black">
-      <div class="flex flex-center full-height">
+      <div class="flex flex-center full-height" :style="bgImageStyle">
         <div>
           <q-spinner-grid
             color="white"
@@ -10,13 +10,6 @@
           />
         </div>
       </div>
-
-        <q-img
-          class="fullscreen"
-          :src="image"
-          spinner-color="white"
-          fit="contain"
-        ></q-img>
     </q-page-container>
   </q-layout>
 </template>
@@ -39,6 +32,14 @@ export default defineComponent({
     };
   },
   computed: {
+    bgImageStyle() {
+      return {
+        'background-image': `url(${this.image})`,
+        'background-repeat': 'no-repeat',
+        'background-size': 'contain',
+        'background-position': 'center center',
+      };
+    },
   },
   methods: {
     stopSound() {
@@ -59,11 +60,13 @@ export default defineComponent({
       this.stopSound();
       const { image, sound } = this.mediaService.getItem(this.pressedKeyword);
       if (image) {
+        console.log(image);
         this.image = image.getPath();
       }
       this.setSoundAndPlay(sound);
       return true;
     },
+
     keylistener(event) {
       const { key } = event;
       this.pressedKeyword = this.mediaService.getKeywordFromKey(key);
@@ -71,6 +74,7 @@ export default defineComponent({
     getRandomKeyword() {
       this.pressedKeyword = this.mediaService.getRandomKeyword();
     },
+
     async fetchData() {
       try {
         this.loading = true;
@@ -84,9 +88,12 @@ export default defineComponent({
       }
     },
   },
+
   created() {
     window.addEventListener('keydown', this.keylistener);
     window.addEventListener('click', this.getRandomKeyword);
+    window.addEventListener('touchstart', (e) => { e.preventDefault(); });
+    window.addEventListener('touchmove', (e) => { e.preventDefault(); });
   },
   mounted() {
     this.fetchData();

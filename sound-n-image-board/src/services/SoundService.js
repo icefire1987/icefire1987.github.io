@@ -20,20 +20,20 @@ class MediaService {
   }
 
   async loadMedia(count = 0) {
+    let limiter = keywords.length;
     if (count) {
-      // eslint-disable-next-line no-plusplus
-      for (let i = 0; i < count; i++) {
-        const name = keywords[i];
-        // eslint-disable-next-line no-await-in-loop
-        await this.fetchImages(name);
-      }
-      return;
+      limiter = count;
     }
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < keywords.length; i++) {
+    for (let i = 0; i < limiter; i++) {
       const name = keywords[i];
+      if (this.getImagesFromStore(name)) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
       // eslint-disable-next-line no-await-in-loop
       await this.fetchImages(name);
+      this.storeKeywordAndImage(name, this.media[name]);
     }
   }
 
@@ -47,6 +47,31 @@ class MediaService {
   // eslint-disable-next-line class-methods-use-this
   getRandomKeyword() {
     return keywords[Math.floor(Math.random() * keywords.length)];
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  storeKeywordAndImage(keyword, images) {
+    localStorage[keyword] = JSON.stringify(images);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  getImagesFromStore(keyword) {
+    if (localStorage[keyword]) {
+      try {
+        return JSON.parse(localStorage[keyword]);
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  getImageFromStore(keyword, index) {
+    const images = this.getImagesFromStore(keyword);
+    if (!Array.isArray(images)) {
+      return null;
+    }
+    return images[index];
   }
 
   async fetchImages(keyword = '', page = 1) {
@@ -77,25 +102,29 @@ class MediaService {
     return Object.keys(this.media[keyword]).length;
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  getAudioFile(keyword) {
+    try {
+      // eslint-disable-next-line global-require,import/no-dynamic-require
+      const audioFile = require(`/sounds/${keyword}.wav`);
+      return new Audio(audioFile);
+    } catch (e) {
+      return null;
+    }
+  }
+
   getItem(keyword) {
-    console.log(keyword, ':', this.media[keyword]);
-    if (!this.media[keyword]) {
+    console.log(keyword, ':', this.getImagesFromStore(keyword));
+    if (!this.getImagesFromStore(keyword)) {
       return {};
     }
 
     const index = this.getRandomNumber(0, this.getMediaCount(keyword) - 1);
-
-    let audioFile = null;
-    try {
-      // eslint-disable-next-line global-require,import/no-dynamic-require
-      audioFile = require(`/sounds/${keyword}.wav`);
-    } catch (e) {
-      audioFile = null;
-    }
-
+    const audioFile = this.getAudioFile(keyword);
+    const image = this.getImageFromStore(keyword, index);
     return {
-      image: this.media[keyword][index] ? new ImageModel(this.media[keyword][index]) : null,
-      sound: audioFile ? new Audio(audioFile) : null,
+      image: new ImageModel(image),
+      sound: audioFile,
     };
   }
 

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8892248e-c9d7-4d82-9b2e-a0d7eebc4068" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sound-n-image-board/src/layouts/MainLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sound-n-image-board/src/services/SoundService.js" beforeDir="false" afterPath="$PROJECT_DIR$/sound-n-image-board/src/services/SoundService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
