@@ -91,7 +91,6 @@ class MediaService {
       audioFile = require(`/sounds/${keyword}.wav`);
     } catch (e) {
       audioFile = null;
-      console.error(e);
     }
 
     return {
